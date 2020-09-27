@@ -1,0 +1,10 @@
+rm(list=ls())
+data<-read.csv("F:/Thesis/DataMing+MachieLeaning/Diabetes/Normalized_Data.csv")
+
+library(caTools)
+set.seed(123)
+split=sample.split(data$class,SplitRatio =0.8)
+training=subset(data,split==TRUE)
+testing=subset(data,split==FALSE)
+write.csv(training,"F:/Thesis/DataMing+MachieLeaning/Diabetes/Normalized_Dataset_Train80p.csv")
+write.csv(testing,"F:/Thesis/DataMing+MachieLeaning/Diabetes/Normalized_Dataset_Test20p.csv")
